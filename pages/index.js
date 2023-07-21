@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import {ethers} from "ethers";
-import atm_abi from "../artifacts/contracts/Assessment.sol/Assessment.json";
+import atm_abi from "../artifacts/contracts/sudhanshu.sol/sudhanshu.json";
 
 export default function HomePage() {
   const [ethWallet, setEthWallet] = useState(undefined);
@@ -66,10 +66,24 @@ export default function HomePage() {
       getBalance();
     }
   }
+  const deposit_5 = async() => {
+    if (atm) {
+      let tx = await atm.deposit(5);
+      await tx.wait()
+      getBalance();
+    }
+  }
 
   const withdraw = async() => {
     if (atm) {
       let tx = await atm.withdraw(1);
+      await tx.wait()
+      getBalance();
+    }
+  }
+  const withdraw_5 = async() => {
+    if (atm) {
+      let tx = await atm.withdraw(5);
       await tx.wait()
       getBalance();
     }
@@ -96,6 +110,8 @@ export default function HomePage() {
         <p>Your Balance: {balance}</p>
         <button onClick={deposit}>Deposit 1 ETH</button>
         <button onClick={withdraw}>Withdraw 1 ETH</button>
+        <button onClick={deposit_5}>Deposit 5 ETH</button>
+        <button onClick={withdraw_5}>Withdraw 5 ETH</button>
       </div>
     )
   }
@@ -104,11 +120,23 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Metacrafters ATM!</h1></header>
+      <header><h1>PROJECT MODULE 2</h1></header>
+      <header><h1>WELCOME TO SUDHANSHU'S ATM</h1></header>
+
       {initUser()}
       <style jsx>{`
         .container {
-          text-align: center
+          width: 1000px; /* Set the width of the box */
+          height: 500px; /* Set the height of the box */
+          background-color: #f0f0f0; /* Set the background color of the box */
+          border: 2px solid #ccc; /* Add a border to the box */
+          border-radius: 5px; /* Add rounded corners to the box */
+          display: flex;
+          justify-content: center; /* Center horizontally */
+  align-items: center;
+          
+          text-align: center;
+          font-family: 'Cursive', Lucida Handwriting;
         }
       `}
       </style>
