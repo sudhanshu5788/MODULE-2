@@ -3,13 +3,14 @@ pragma solidity ^0.8.9;
 
 //import "hardhat/console.sol";
 
-contract Assessment {
+contract sudhanshu {
     address payable public owner;
     uint256 public balance;
 
     event Deposit(uint256 amount);
     event Withdraw(uint256 amount);
-
+    
+    
     constructor(uint initBalance) payable {
         owner = payable(msg.sender);
         balance = initBalance;
