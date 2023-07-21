@@ -8,11 +8,11 @@ const hre = require("hardhat");
 
 async function main() {
   const initBalance = 1;
-  const Assessment = await hre.ethers.getContractFactory("Assessment");
-  const assessment = await Assessment.deploy(initBalance);
-  await assessment.deployed();
+  const sudhanshu1 = await hre.ethers.getContractFactory("sudhanshu");
+  const sudhanshu2 = await sudhanshu1.deploy(initBalance);
+  await sudhanshu2.deployed();
 
-  console.log(`A contract with balance of ${initBalance} eth deployed to ${assessment.address}`);
+  console.log(`A contract with balance of ${initBalance} eth deployed to ${sudhanshu2.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
